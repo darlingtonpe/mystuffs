@@ -1,0 +1,8 @@
+RewriteEngine On
+Options +FollowSymLinks
+
+# for the non-php to php (if no other file extension supplied)
+RewriteCond %{REQUEST_URI} !-f
+RewriteCond %{REQUEST_URI} !-d
+RewriteCond %{REQUEST_URI} !\.[A-Z]{3}$ [NC]
+RewriteRule ^(.+)$ $1.php [R,L,QSA]
